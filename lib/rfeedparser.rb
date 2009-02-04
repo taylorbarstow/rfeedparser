@@ -60,15 +60,15 @@ require 'rfeedparser/parser_mixin'
 
 require 'rfeedparser/loose_feed_parser'
 
+
 begin
-  require 'rfeedparser/expat_parser'
-  StrictFeedParser = FeedParser::Expat::StrictFeedParser
+  require 'rfeedparser/libxml_parser'
+  StrictFeedParser = FeedParser::LibXML::StrictFeedParser
   
 rescue LoadError, NameError
-  
   begin
-    require 'rfeedparser/libxml_parser'
-    StrictFeedParser = FeedParser::LibXML::StrictFeedParser
+    require 'rfeedparser/expat_parser'
+    StrictFeedParser = FeedParser::Expat::StrictFeedParser
 
   rescue LoadError, NameError
     StrictFeedParser = nil
@@ -81,7 +81,7 @@ require 'rfeedparser/monkey_patches'
 module FeedParser
   extend FeedParserUtilities
   
-  VERSION = "0.9.951"
+  VERSION = "0.9.952"
 
   AUTHOR = "Mark Pilgrim <http://diveintomark.org/>"
   PORTER = "Jeff Hodges <http://somethingsimilar.com>"

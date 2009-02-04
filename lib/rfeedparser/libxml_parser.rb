@@ -1,4 +1,4 @@
-gem 'libxml-ruby', '>=0.8.3'
+gem 'libxml-ruby', '=0.9.7'
 require 'libxml'
 
 module FeedParser
